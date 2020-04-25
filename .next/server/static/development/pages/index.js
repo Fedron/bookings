@@ -108,9 +108,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Container */ "@material-ui/core/Container");
 /* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "D:\\GitHub\\bookings\\pages\\index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
 
 
 const useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
@@ -120,6 +126,12 @@ const useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["makeS
     height: "100vh",
     overflow: "hidden",
     color: "#ffc400"
+  },
+  navbar: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginTop: "1rem",
+    alignItems: "center"
   }
 }));
 
@@ -130,7 +142,7 @@ const Index = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 26,
       columnNumber: 5
     }
   }, __jsx(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -138,17 +150,26 @@ const Index = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 27,
       columnNumber: 7
     }
-  }, __jsx("h1", {
+  }, __jsx("nav", {
+    className: classes.navbar,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 28,
       columnNumber: 9
     }
-  }, "Hello, world!")));
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    variant: "h2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 11
+    }
+  }, "Bookings"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
@@ -167,6 +188,17 @@ module.exports = __webpack_require__(/*! D:\GitHub\bookings\pages\index.js */"./
 
 /***/ }),
 
+/***/ "@material-ui/core/Button":
+/*!*******************************************!*\
+  !*** external "@material-ui/core/Button" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Button");
+
+/***/ }),
+
 /***/ "@material-ui/core/Container":
 /*!**********************************************!*\
   !*** external "@material-ui/core/Container" ***!
@@ -175,6 +207,17 @@ module.exports = __webpack_require__(/*! D:\GitHub\bookings\pages\index.js */"./
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/core/Container");
+
+/***/ }),
+
+/***/ "@material-ui/core/Typography":
+/*!***********************************************!*\
+  !*** external "@material-ui/core/Typography" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Typography");
 
 /***/ }),
 

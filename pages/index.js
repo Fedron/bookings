@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/styles';
 import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -8,6 +10,12 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     overflow: "hidden",
     color: "#ffc400"
+  },
+  navbar: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginTop: "1rem",
+    alignItems: "center"
   }
 }));
 
@@ -17,7 +25,9 @@ const Index = () => {
   return (
     <div className={classes.root}>
       <Container maxWidth="md">
-        <h1>Hello, world!</h1>
+        <nav className={classes.navbar}>
+          <Typography variant="h2">Bookings</Typography>
+        </nav>
       </Container>
     </div>
   );
