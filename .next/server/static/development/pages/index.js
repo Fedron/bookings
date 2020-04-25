@@ -104,26 +104,51 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/styles */ "@material-ui/styles");
+/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Container */ "@material-ui/core/Container");
+/* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "D:\\GitHub\\bookings\\pages\\index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+
+const useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  root: {
+    background: "linear-gradient(132deg, rgba(46,44,70,1) 0%, rgba(7,12,52,1) 100%)",
+    width: "100vw",
+    height: "100vh",
+    overflow: "hidden",
+    color: "#ffc400"
+  }
+}));
+
 const Index = () => {
+  const classes = useStyles();
   return __jsx("div", {
+    className: classes.root,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 3,
+      lineNumber: 18,
       columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    maxWidth: "md",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 7
     }
   }, __jsx("h1", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 4,
-      columnNumber: 7
+      lineNumber: 20,
+      columnNumber: 9
     }
-  }, "Hello, world!"));
+  }, "Hello, world!")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
@@ -139,6 +164,28 @@ const Index = () => {
 
 module.exports = __webpack_require__(/*! D:\GitHub\bookings\pages\index.js */"./pages/index.js");
 
+
+/***/ }),
+
+/***/ "@material-ui/core/Container":
+/*!**********************************************!*\
+  !*** external "@material-ui/core/Container" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Container");
+
+/***/ }),
+
+/***/ "@material-ui/styles":
+/*!**************************************!*\
+  !*** external "@material-ui/styles" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/styles");
 
 /***/ }),
 
