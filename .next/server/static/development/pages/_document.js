@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -884,6 +884,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_document__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _theme_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../theme.js */ "./theme.js");
 var _jsxFileName = "D:\\GitHub\\bookings\\pages\\_document.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -899,6 +900,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
+
 class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
   static async getInitialProps(ctx) {
     // Render app and page and get the context of the page with collected side effects.
@@ -910,7 +912,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 12,
+          lineNumber: 13,
           columnNumber: 56
         }
       })))
@@ -928,17 +930,26 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26,
+        lineNumber: 27,
         columnNumber: 7
       }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27,
+        lineNumber: 28,
         columnNumber: 9
       }
-    }), __jsx("body", {
+    }, __jsx("meta", {
+      name: "theme-color",
+      content: _theme_js__WEBPACK_IMPORTED_MODULE_3__["default"].palette.primary.main,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29,
+        columnNumber: 11
+      }
+    })), __jsx("body", {
       style: {
         margin: 0,
         padding: 0
@@ -946,21 +957,21 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28,
+        lineNumber: 31,
         columnNumber: 9
       }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32,
+        lineNumber: 35,
         columnNumber: 11
       }
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33,
+        lineNumber: 36,
         columnNumber: 11
       }
     })));
@@ -972,7 +983,43 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
 
 /***/ }),
 
-/***/ 0:
+/***/ "./theme.js":
+/*!******************!*\
+  !*** ./theme.js ***!
+  \******************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_colors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/colors */ "@material-ui/core/colors");
+/* harmony import */ var _material_ui_core_colors__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors__WEBPACK_IMPORTED_MODULE_1__);
+
+ // Create a theme instance.
+
+const theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["createMuiTheme"])({
+  palette: {
+    primary: {
+      main: '#556cd6'
+    },
+    secondary: {
+      main: '#19857b'
+    },
+    error: {
+      main: _material_ui_core_colors__WEBPACK_IMPORTED_MODULE_1__["red"].A400
+    },
+    background: {
+      default: '#fff'
+    }
+  }
+});
+/* harmony default export */ __webpack_exports__["default"] = (theme);
+
+/***/ }),
+
+/***/ 1:
 /*!*********************************************!*\
   !*** multi private-next-pages/_document.js ***!
   \*********************************************/
@@ -981,6 +1028,17 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
 
 module.exports = __webpack_require__(/*! private-next-pages/_document.js */"./pages/_document.js");
 
+
+/***/ }),
+
+/***/ "@material-ui/core/colors":
+/*!*******************************************!*\
+  !*** external "@material-ui/core/colors" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/colors");
 
 /***/ }),
 

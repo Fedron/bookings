@@ -1,15 +1,15 @@
 import { makeStyles } from '@material-ui/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import CustomButton from '../components/CustomButton';
+import BookingForm from '../components/BookingForm';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: "linear-gradient(132deg, rgba(46,44,70,1) 0%, rgba(7,12,52,1) 100%)",
+    background: "linear-gradient(132deg, rgba(249,247,241,1) 0%, rgba(245,237,226,1) 100%)",
     width: "100vw",
     height: "100vh",
     overflow: "hidden",
-    color: "#ffc400"
   },
   navbar: {
     display: "flex",
@@ -26,8 +26,16 @@ const Index = () => {
     <div className={classes.root}>
       <Container maxWidth="md">
         <nav className={classes.navbar}>
-          <Typography variant="h2">Bookings</Typography>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <img src="https://pngimage.net/wp-content/uploads/2018/06/logo-placeholder-png-7.png" width="100" />
+            <Typography variant="h2">COMPANY</Typography>
+          </div>
+          
+          <CustomButton>Login</CustomButton>
         </nav>
+        <main>
+          <BookingForm />
+        </main>
       </Container>
     </div>
   );

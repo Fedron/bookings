@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
+import theme from '../theme.js';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -24,7 +25,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <meta name="theme-color" content={theme.palette.primary.main} />
+        </Head>
         <body style={{
           margin: 0,
           padding: 0
