@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Index = () => {
+const Index = ({ loggedIn }) => {
   const classes = useStyles();
 
   return (
@@ -28,10 +28,14 @@ const Index = () => {
         <nav className={classes.navbar}>
           <div style={{ display: "flex", alignItems: "center" }}>
             <img src="https://pngimage.net/wp-content/uploads/2018/06/logo-placeholder-png-7.png" width="100" />
-            <Typography variant="h2">COMPANY</Typography>
+            <Typography variant="h2" style={{ marginLeft: "0.5rem" }}>COMPANY</Typography>
           </div>
           
-          <CustomButton>Login</CustomButton>
+          {loggedIn ?
+            <Typography>Logged In</Typography>
+            :
+            <CustomButton href="/signin">Login</CustomButton>
+          }
         </nav>
         <main>
           <BookingForm />
@@ -39,6 +43,11 @@ const Index = () => {
       </Container>
     </div>
   );
+}
+
+Index.getInitialProps = async (ctx) => {
+  const loggedIn = ctx.req.session.userID ? true : false;
+  return { loggedIn }
 }
 
 export default Index;

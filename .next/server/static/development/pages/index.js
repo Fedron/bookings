@@ -114,7 +114,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _CustomButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./CustomButton */ "./components/CustomButton.js");
 /* harmony import */ var _CustomCheckbox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CustomCheckbox */ "./components/CustomCheckbox.js");
-var _jsxFileName = "D:\\GitHub\\bookings\\components\\BookingForm.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -183,198 +182,70 @@ const BookingForm = () => {
     1: setBreakfast
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   return __jsx("div", {
-    className: classes.root,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 60,
-      columnNumber: 5
-    }
+    className: classes.root
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
     variant: "h3",
     style: {
       marginTop: theme.spacing(5)
     },
-    className: classes.title,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 61,
-      columnNumber: 7
-    }
+    className: classes.title
   }, "Create new booking"), __jsx("div", {
-    className: classes.dates,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 67,
-      columnNumber: 7
-    }
-  }, __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 68,
-      columnNumber: 9
-    }
-  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    variant: "h5",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 69,
-      columnNumber: 11
-    }
+    className: classes.dates
+  }, __jsx("div", null, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    variant: "h5"
   }, "From date"), __jsx(react_datepicker__WEBPACK_IMPORTED_MODULE_1___default.a, {
     selected: startDate,
-    onChange: handleStartDateChange,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 70,
-      columnNumber: 11
-    }
-  })), __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 72,
-      columnNumber: 9
-    }
-  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    variant: "h5",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 73,
-      columnNumber: 11
-    }
+    onChange: handleStartDateChange
+  })), __jsx("div", null, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    variant: "h5"
   }, "To date"), __jsx(react_datepicker__WEBPACK_IMPORTED_MODULE_1___default.a, {
     selected: endDate,
-    onChange: handleEndDateChange,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 74,
-      columnNumber: 11
-    }
+    onChange: handleEndDateChange
   }))), __jsx("div", {
-    className: classes.breakfastForm,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 78,
-      columnNumber: 7
-    }
+    className: classes.breakfastForm
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    variant: "h6",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 79,
-      columnNumber: 9
-    }
+    variant: "h6"
   }, "Would you like breakfast to be included?"), __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     control: __jsx(_CustomCheckbox__WEBPACK_IMPORTED_MODULE_6__["default"], {
       name: "breakfast",
       checked: breakfast,
       onChange: () => {
         setBreakfast(!breakfast);
-      },
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 82,
-        columnNumber: 13
       }
     }),
-    label: "Breakfast",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 80,
-      columnNumber: 9
-    }
+    label: "Breakfast"
   })), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
     variant: "h3",
     style: {
       marginTop: theme.spacing(4)
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 94,
-      columnNumber: 7
     }
   }, "You are staying for"), __jsx("div", {
     style: {
       display: "flex",
       alignItems: "center"
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 98,
-      columnNumber: 7
     }
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
     variant: "h1",
     style: {
       marginRight: theme.spacing(2)
     },
-    className: classes.bigText,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 99,
-      columnNumber: 9
-    }
+    className: classes.bigText
   }, "10"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
     variant: "h3",
-    className: classes.bigText,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 104,
-      columnNumber: 9
-    }
+    className: classes.bigText
   }, "Days")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    variant: "h3",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 109,
-      columnNumber: 7
-    }
+    variant: "h3"
   }, "At a cost of"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
     variant: "h1",
-    className: classes.bigText,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 110,
-      columnNumber: 7
-    }
+    className: classes.bigText
   }, "\xA349"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
     style: {
       marginTop: theme.spacing(4)
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 115,
-      columnNumber: 7
     }
-  }, "To purchase your booking, press confirm below"), __jsx(_CustomButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, "To purchase your booking, please press confirm below"), __jsx(_CustomButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
     size: "large",
     style: {
       marginTop: theme.spacing(2)
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 117,
-      columnNumber: 7
     }
   }, "Confirm"));
 };
@@ -433,7 +304,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "D:\\GitHub\\bookings\\components\\CustomCheckbox.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -443,21 +313,11 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 const CustomCheckbox = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["withStyles"])(theme => ({
   root: {
-    color: "#5fc2f2",
-    "&$checked": {
-      color: "#5fc2f2"
-    }
+    color: "#5fc2f2"
   }
 }))(props => __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_2___default.a, _extends({
   color: "default"
-}, props, {
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 11,
-    columnNumber: 16
-  }
-})));
+}, props)));
 /* harmony default export */ __webpack_exports__["default"] = (CustomCheckbox);
 
 /***/ }),
@@ -481,7 +341,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_CustomButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/CustomButton */ "./components/CustomButton.js");
 /* harmony import */ var _components_BookingForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/BookingForm */ "./components/BookingForm.js");
-var _jsxFileName = "D:\\GitHub\\bookings\\pages\\index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -504,82 +363,39 @@ const useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["makeS
   }
 }));
 
-const Index = () => {
+const Index = ({
+  loggedIn
+}) => {
   const classes = useStyles();
   return __jsx("div", {
-    className: classes.root,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 26,
-      columnNumber: 5
-    }
+    className: classes.root
   }, __jsx(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    maxWidth: "md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 27,
-      columnNumber: 7
-    }
+    maxWidth: "md"
   }, __jsx("nav", {
-    className: classes.navbar,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 28,
-      columnNumber: 9
-    }
+    className: classes.navbar
   }, __jsx("div", {
     style: {
       display: "flex",
       alignItems: "center"
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 29,
-      columnNumber: 11
     }
   }, __jsx("img", {
     src: "https://pngimage.net/wp-content/uploads/2018/06/logo-placeholder-png-7.png",
-    width: "100",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30,
-      columnNumber: 13
-    }
+    width: "100"
   }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
     variant: "h2",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 31,
-      columnNumber: 13
+    style: {
+      marginLeft: "0.5rem"
     }
-  }, "COMPANY")), __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 34,
-      columnNumber: 11
-    }
-  }, "Login")), __jsx("main", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36,
-      columnNumber: 9
-    }
-  }, __jsx(_components_BookingForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37,
-      columnNumber: 11
-    }
-  }))));
+  }, "COMPANY")), loggedIn ? __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, null, "Logged In") : __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    href: "/signin"
+  }, "Login")), __jsx("main", null, __jsx(_components_BookingForm__WEBPACK_IMPORTED_MODULE_5__["default"], null))));
+};
+
+Index.getInitialProps = async ctx => {
+  const loggedIn = ctx.req.session.userID ? true : false;
+  return {
+    loggedIn
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);

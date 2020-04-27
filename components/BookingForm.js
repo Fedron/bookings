@@ -112,7 +112,7 @@ const BookingForm = () => {
         className={classes.bigText}
       >£49</Typography>
 
-      <Typography style={{ marginTop: theme.spacing(4) }}>To purchase your booking, press confirm below</Typography>
+      <Typography style={{ marginTop: theme.spacing(4) }}>To purchase your booking, please press confirm below</Typography>
 
       <CustomButton
         size="large"
