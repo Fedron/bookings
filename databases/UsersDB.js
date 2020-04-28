@@ -15,7 +15,8 @@ class UsersDB extends Database {
     const records = await this.getAll();
     const record = {
       ...attrs,
-      password: `${hashed}.${salt}`
+      password: `${hashed}.${salt}`,
+      bookings: []
     };
     records.push(record);
 

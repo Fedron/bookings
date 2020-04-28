@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -275,7 +275,7 @@ const CustomButton = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_0__["wi
     borderImageSlice: "30%",
     borderStyle: "solid",
     borderWidth: "5px",
-    color: "#20e6ee",
+    color: "#40d4f0",
     padding: "0.5rem 1rem",
     fontWeight: "bold",
     fontSize: "120%",
@@ -326,11 +326,12 @@ const CustomCheckbox = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["
 /*!************************!*\
   !*** ./pages/index.js ***!
   \************************/
-/*! exports provided: default */
+/*! exports provided: getServerSideProps, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getServerSideProps", function() { return getServerSideProps; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/styles */ "@material-ui/styles");
@@ -349,12 +350,6 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
-  root: {
-    background: "linear-gradient(132deg, rgba(249,247,241,1) 0%, rgba(245,237,226,1) 100%)",
-    width: "100vw",
-    height: "100vh",
-    overflow: "hidden"
-  },
   navbar: {
     display: "flex",
     justifyContent: "space-between",
@@ -367,9 +362,7 @@ const Index = ({
   loggedIn
 }) => {
   const classes = useStyles();
-  return __jsx("div", {
-    className: classes.root
-  }, __jsx(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  return __jsx("div", null, __jsx(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2___default.a, {
     maxWidth: "md"
   }, __jsx("nav", {
     className: classes.navbar
@@ -386,23 +379,28 @@ const Index = ({
     style: {
       marginLeft: "0.5rem"
     }
-  }, "COMPANY")), loggedIn ? __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, null, "Logged In") : __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, "COMPANY")), loggedIn ? __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    href: "/signout"
+  }, "Sign Out") : __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
     href: "/signin"
   }, "Login")), __jsx("main", null, __jsx(_components_BookingForm__WEBPACK_IMPORTED_MODULE_5__["default"], null))));
 };
 
-Index.getInitialProps = async ctx => {
-  const loggedIn = ctx.req.session.userID ? true : false;
+async function getServerSideProps({
+  req
+}) {
+  const loggedIn = req.session.userID ? true : false;
   return {
-    loggedIn
+    props: {
+      loggedIn
+    }
   };
-};
-
+}
 /* harmony default export */ __webpack_exports__["default"] = (Index);
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

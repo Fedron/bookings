@@ -885,7 +885,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _theme_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../theme.js */ "./theme.js");
-var _jsxFileName = "D:\\GitHub\\bookings\\pages\\_document.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -894,8 +893,6 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 
 
@@ -908,14 +905,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
     const originalRenderPage = ctx.renderPage;
 
     ctx.renderPage = () => originalRenderPage({
-      enhanceApp: App => props => sheets.collect(__jsx(App, _extends({}, props, {
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 13,
-          columnNumber: 56
-        }
-      })))
+      enhanceApp: App => props => sheets.collect(__jsx(App, props))
     });
 
     const initialProps = await next_document__WEBPACK_IMPORTED_MODULE_1___default.a.getInitialProps(ctx);
@@ -926,55 +916,19 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
   }
 
   render() {
-    return __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Html"], {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 27,
-        columnNumber: 7
-      }
-    }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 28,
-        columnNumber: 9
-      }
-    }, __jsx("meta", {
+    return __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Html"], null, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], null, __jsx("meta", {
       name: "theme-color",
-      content: _theme_js__WEBPACK_IMPORTED_MODULE_3__["default"].palette.primary.main,
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 29,
-        columnNumber: 11
-      }
+      content: _theme_js__WEBPACK_IMPORTED_MODULE_3__["default"].palette.primary.main
     })), __jsx("body", {
       style: {
         margin: 0,
-        padding: 0
-      },
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 31,
-        columnNumber: 9
+        padding: 0,
+        background: "linear-gradient(132deg, rgba(249,247,241,1) 0%, rgba(245,237,226,1) 100%)",
+        width: "100vw",
+        height: "100vh",
+        overflow: "hidden"
       }
-    }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 35,
-        columnNumber: 11
-      }
-    }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 36,
-        columnNumber: 11
-      }
-    })));
+    }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], null), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], null)));
   }
 
 }

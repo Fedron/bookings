@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import CustomButton from './CustomButton';
 
 import 'isomorphic-fetch';
 import useImportForm from '../hooks/useFormInput.js';
 import useStyles from './styles/authStyles.js';
 
 const SignUpForm = () => {
+  const router = useRouter();
   const [username, handleUsername] = useImportForm("");
   const [password, handlePassword, resetPassword] = useImportForm("");
   const [passwordConf, handlePasswordConf, resetPasswordConf] = useImportForm("");
@@ -62,7 +63,7 @@ const SignUpForm = () => {
         body: JSON.stringify({ username, password, passwordConf })
       }).then((res) => {
         if (res.status === 200) {
-          Router.push("/");
+          router.push("/");
         } else {
           setErrors({...errors, username: res.statusText});
           resetPassword();
@@ -126,15 +127,13 @@ const SignUpForm = () => {
             <Typography className={classes.error}>{errors.passwordConf}</Typography>
           }
 
-          <Button
+          <CustomButton
             type="submit"
             fullWidth
-            variant="contained"
-            color="primary"
             className={classes.submit}
           >
             Sign Up
-          </Button>
+          </CustomButton>
         </form>
 
         <Link href="/signin"><a>Already got an account? Sign in here</a></Link>

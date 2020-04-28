@@ -5,12 +5,6 @@ import CustomButton from '../components/CustomButton';
 import BookingForm from '../components/BookingForm';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    background: "linear-gradient(132deg, rgba(249,247,241,1) 0%, rgba(245,237,226,1) 100%)",
-    width: "100vw",
-    height: "100vh",
-    overflow: "hidden",
-  },
   navbar: {
     display: "flex",
     justifyContent: "space-between",
@@ -23,7 +17,7 @@ const Index = ({ loggedIn }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div>
       <Container maxWidth="md">
         <nav className={classes.navbar}>
           <div style={{ display: "flex", alignItems: "center" }}>
@@ -32,7 +26,7 @@ const Index = ({ loggedIn }) => {
           </div>
           
           {loggedIn ?
-            <Typography>Logged In</Typography>
+            <CustomButton href="/signout">Sign Out</CustomButton>
             :
             <CustomButton href="/signin">Login</CustomButton>
           }
@@ -45,9 +39,9 @@ const Index = ({ loggedIn }) => {
   );
 }
 
-Index.getInitialProps = async (ctx) => {
-  const loggedIn = ctx.req.session.userID ? true : false;
-  return { loggedIn }
+export async function getServerSideProps({ req }) {
+  const loggedIn = req.session.userID ? true : false;
+  return { props: { loggedIn } }
 }
 
 export default Index;

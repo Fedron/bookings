@@ -21,7 +21,7 @@ app.prepare().then(() => {
 
   server.use(bodyParser.json({ limit: "10mb" }));
   server.use(cookieSession({
-    keys: ["e5ior269rsgflhb32sngd"]
+    keys: ["ods032vnb02"]
   }));
 
   server.post("/signup", async (req, res) => {

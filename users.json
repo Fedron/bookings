@@ -2,6 +2,13 @@
   {
     "username": "fedron",
     "password": "026ee2c06ac7f7570f946b0ba57fd2222f3d1e4922675c272591fe91cefda4c46468878725e4cf19bae0ac642739e2b6254ab84a36304b1ab3283dabeba88615.6f13f2d07a8f429c",
-    "id": "cc7ad56ec6c661b7"
+    "id": "cc7ad56ec6c661b7",
+    "bookings": []
+  },
+  {
+    "username": "admin",
+    "password": "e83b02a6a73c2e88a99b862815b78aa0c70080a4b89d4bf9a50eceb8f2172416ee01ba84cc2c8dba72519d5f2fd3aad9e3bfc26adba33a968ceae74264cec831.d252caeab294352f",
+    "id": "5daf24d6c00eb33e",
+    "bookings": []
   }
 ]

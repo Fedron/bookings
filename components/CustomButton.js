@@ -7,7 +7,7 @@ const CustomButton = withStyles((theme) => ({
     borderImageSlice: "30%",
     borderStyle: "solid",
     borderWidth: "5px",
-    color: "#20e6ee",
+    color: "#40d4f0",
     padding: "0.5rem 1rem",
     fontWeight: "bold",
     fontSize: "120%",
