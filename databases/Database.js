@@ -15,7 +15,7 @@ module.exports = class Database {
     }
   }
 
-  async getAll(id) {
+  async getAll() {
     return JSON.parse(
       await fs.promises.readFile(this.filename, { encoding: "utf8" })
     );

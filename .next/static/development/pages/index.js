@@ -62,7 +62,8 @@ var useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_2__["makeSty
   };
 });
 
-var BookingForm = function BookingForm() {
+var BookingForm = function BookingForm(_ref) {
+  var roomPrice = _ref.roomPrice;
   var classes = useStyles();
   var theme = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_2__["useTheme"])();
 
@@ -86,6 +87,8 @@ var BookingForm = function BookingForm() {
       breakfast = _useState3[0],
       setBreakfast = _useState3[1];
 
+  var stayDuration = Math.round((endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24) + 1);
+  var totalPrice = roomPrice * stayDuration;
   return __jsx("div", {
     className: classes.root
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -135,15 +138,15 @@ var BookingForm = function BookingForm() {
       marginRight: theme.spacing(2)
     },
     className: classes.bigText
-  }, "10"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, stayDuration), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
     variant: "h3",
     className: classes.bigText
-  }, "Days")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, stayDuration === 1 ? "Day" : "Days")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
     variant: "h3"
   }, "At a cost of"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
     variant: "h1",
     className: classes.bigText
-  }, "\xA349"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, "\xA3", totalPrice), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
     style: {
       marginTop: theme.spacing(4)
     }
@@ -19924,6 +19927,23 @@ module.exports = function isRegex(value) {
 
 /***/ }),
 
+/***/ "./node_modules/isomorphic-fetch/fetch-npm-browserify.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/isomorphic-fetch/fetch-npm-browserify.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// the whatwg-fetch polyfill installs the fetch() function
+// on the global object (window or self)
+//
+// Return that as the export for use in Webpack, Browserify etc.
+__webpack_require__(/*! whatwg-fetch */ "./node_modules/next/dist/build/polyfills/fetch/whatwg-fetch.js");
+module.exports = self.fetch.bind(self);
+
+
+/***/ }),
+
 /***/ "./node_modules/jss-plugin-camel-case/dist/jss-plugin-camel-case.esm.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/jss-plugin-camel-case/dist/jss-plugin-camel-case.esm.js ***!
@@ -22998,6 +23018,18 @@ var index = create();
 /* harmony default export */ __webpack_exports__["default"] = (index);
 
 
+
+/***/ }),
+
+/***/ "./node_modules/next/dist/build/polyfills/fetch/whatwg-fetch.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/next/dist/build/polyfills/fetch/whatwg-fetch.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* globals self */exports.Headers=self.Headers;exports.Request=self.Request;exports.Response=self.Response;exports.fetch=self.fetch;
 
 /***/ }),
 
@@ -29965,8 +29997,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
 /* harmony import */ var _components_CustomButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/CustomButton */ "./components/CustomButton.js");
 /* harmony import */ var _components_BookingForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/BookingForm */ "./components/BookingForm.js");
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! isomorphic-fetch */ "./node_modules/isomorphic-fetch/fetch-npm-browserify.js");
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_6__);
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -29985,7 +30020,8 @@ var useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["makeSty
 
 var Index = function Index(_ref) {
   var loggedIn = _ref.loggedIn,
-      isAdmin = _ref.isAdmin;
+      isAdmin = _ref.isAdmin,
+      roomPrice = _ref.roomPrice;
   var classes = useStyles();
   var theme = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["useTheme"])();
   return __jsx("div", null, __jsx(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -30023,7 +30059,9 @@ var Index = function Index(_ref) {
     href: "/signout"
   }, "Sign Out")) : __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
     href: "/signin"
-  }, "Login")), __jsx("main", null, __jsx(_components_BookingForm__WEBPACK_IMPORTED_MODULE_5__["default"], null))));
+  }, "Login")), __jsx("main", null, __jsx(_components_BookingForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    roomPrice: roomPrice
+  }))));
 };
 
 var __N_SSP = true;

@@ -3,6 +3,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import CustomButton from '../components/CustomButton';
 import BookingForm from '../components/BookingForm';
+import 'isomorphic-fetch';
 
 const useStyles = makeStyles((theme) => ({
   navbar: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Index = ({ loggedIn, isAdmin }) => {
+const Index = ({ loggedIn, isAdmin, roomPrice }) => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -42,7 +43,7 @@ const Index = ({ loggedIn, isAdmin }) => {
           }
         </nav>
         <main>
-          <BookingForm />
+          <BookingForm roomPrice={roomPrice} />
         </main>
       </Container>
     </div>
@@ -52,7 +53,11 @@ const Index = ({ loggedIn, isAdmin }) => {
 export async function getServerSideProps({ req }) {
   const loggedIn = req.session.userID ? true : false;
   const isAdmin = req.session.level > 0 ? true : false;
-  return { props: { loggedIn, isAdmin } }
+
+  const res = await fetch(`${req.protocol}://${req.get("host")}/api/price`);
+  const roomPrice = await res.json();
+
+  return { props: { loggedIn, isAdmin, roomPrice } }
 }
 
 export default Index;

@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const BookingForm = () => {
+const BookingForm = ({ roomPrice }) => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -55,6 +55,9 @@ const BookingForm = () => {
   }
 
   const [breakfast, setBreakfast] = useState(false);
+
+  const stayDuration = Math.round(((endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24)) + 1);
+  const totalPrice = roomPrice * stayDuration;
 
   return (
     <div className={classes.root}>
@@ -100,17 +103,17 @@ const BookingForm = () => {
           variant="h1"
           style={{ marginRight: theme.spacing(2) }}
           className={classes.bigText}
-        >10</Typography>
+        >{stayDuration}</Typography>
         <Typography
           variant="h3"
           className={classes.bigText}
-        >Days</Typography>
+        >{stayDuration === 1 ? "Day" : "Days"}</Typography>
       </div>
       <Typography variant="h3">At a cost of</Typography>
       <Typography
         variant="h1"
         className={classes.bigText}
-      >£49</Typography>
+      >£{totalPrice}</Typography>
 
       <Typography style={{ marginTop: theme.spacing(4) }}>To purchase your booking, please press confirm below</Typography>
 

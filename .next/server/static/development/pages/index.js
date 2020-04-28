@@ -156,7 +156,9 @@ const useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_2__["makeS
   }
 }));
 
-const BookingForm = () => {
+const BookingForm = ({
+  roomPrice
+}) => {
   const classes = useStyles();
   const theme = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_2__["useTheme"])();
   const {
@@ -181,6 +183,8 @@ const BookingForm = () => {
     0: breakfast,
     1: setBreakfast
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const stayDuration = Math.round((endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24) + 1);
+  const totalPrice = roomPrice * stayDuration;
   return __jsx("div", {
     className: classes.root
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -230,15 +234,15 @@ const BookingForm = () => {
       marginRight: theme.spacing(2)
     },
     className: classes.bigText
-  }, "10"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, stayDuration), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
     variant: "h3",
     className: classes.bigText
-  }, "Days")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, stayDuration === 1 ? "Day" : "Days")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
     variant: "h3"
   }, "At a cost of"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
     variant: "h1",
     className: classes.bigText
-  }, "\xA349"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, "\xA3", totalPrice), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
     style: {
       marginTop: theme.spacing(4)
     }
@@ -342,8 +346,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_CustomButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/CustomButton */ "./components/CustomButton.js");
 /* harmony import */ var _components_BookingForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/BookingForm */ "./components/BookingForm.js");
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_6__);
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -360,7 +367,8 @@ const useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["makeS
 
 const Index = ({
   loggedIn,
-  isAdmin
+  isAdmin,
+  roomPrice
 }) => {
   const classes = useStyles();
   const theme = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["useTheme"])();
@@ -399,7 +407,9 @@ const Index = ({
     href: "/signout"
   }, "Sign Out")) : __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
     href: "/signin"
-  }, "Login")), __jsx("main", null, __jsx(_components_BookingForm__WEBPACK_IMPORTED_MODULE_5__["default"], null))));
+  }, "Login")), __jsx("main", null, __jsx(_components_BookingForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    roomPrice: roomPrice
+  }))));
 };
 
 async function getServerSideProps({
@@ -407,10 +417,13 @@ async function getServerSideProps({
 }) {
   const loggedIn = req.session.userID ? true : false;
   const isAdmin = req.session.level > 0 ? true : false;
+  const res = await fetch(`${req.protocol}://${req.get("host")}/api/price`);
+  const roomPrice = await res.json();
   return {
     props: {
       loggedIn,
-      isAdmin
+      isAdmin,
+      roomPrice
     }
   };
 }
@@ -493,6 +506,17 @@ module.exports = require("@material-ui/core/Typography");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/styles");
+
+/***/ }),
+
+/***/ "isomorphic-fetch":
+/*!***********************************!*\
+  !*** external "isomorphic-fetch" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("isomorphic-fetch");
 
 /***/ }),
 
