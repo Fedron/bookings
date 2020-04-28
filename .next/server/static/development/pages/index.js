@@ -359,9 +359,11 @@ const useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["makeS
 }));
 
 const Index = ({
-  loggedIn
+  loggedIn,
+  isAdmin
 }) => {
   const classes = useStyles();
+  const theme = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["useTheme"])();
   return __jsx("div", null, __jsx(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2___default.a, {
     maxWidth: "md"
   }, __jsx("nav", {
@@ -379,9 +381,23 @@ const Index = ({
     style: {
       marginLeft: "0.5rem"
     }
-  }, "COMPANY")), loggedIn ? __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, "COMPANY")), loggedIn ? __jsx("div", {
+    style: {
+      display: "flex"
+    }
+  }, isAdmin ? __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    href: "/admin",
+    style: {
+      marginRight: theme.spacing(2)
+    }
+  }, "Admin Panel") : __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    href: "/bookings",
+    style: {
+      marginRight: theme.spacing(2)
+    }
+  }, "My Bookings"), __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
     href: "/signout"
-  }, "Sign Out") : __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, "Sign Out")) : __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
     href: "/signin"
   }, "Login")), __jsx("main", null, __jsx(_components_BookingForm__WEBPACK_IMPORTED_MODULE_5__["default"], null))));
 };
@@ -390,9 +406,11 @@ async function getServerSideProps({
   req
 }) {
   const loggedIn = req.session.userID ? true : false;
+  const isAdmin = req.session.level > 0 ? true : false;
   return {
     props: {
-      loggedIn
+      loggedIn,
+      isAdmin
     }
   };
 }

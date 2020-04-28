@@ -40,6 +40,7 @@ app.prepare().then(() => {
 
     const user = await usersDB.create({ username, password });
     req.session.userID = user.id;
+    req.session.level = user.level;
 
     res.send("");
   });
@@ -64,6 +65,7 @@ app.prepare().then(() => {
     }
 
     req.session.userID = user.id;
+    req.session.level = user.level;
     res.send("");
   });
 

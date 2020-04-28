@@ -16,6 +16,7 @@ class UsersDB extends Database {
     const record = {
       ...attrs,
       password: `${hashed}.${salt}`,
+      level: 0,
       bookings: []
     };
     records.push(record);

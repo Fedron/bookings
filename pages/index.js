@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import CustomButton from '../components/CustomButton';
@@ -13,8 +13,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Index = ({ loggedIn }) => {
+const Index = ({ loggedIn, isAdmin }) => {
   const classes = useStyles();
+  const theme = useTheme();
 
   return (
     <div>
@@ -26,7 +27,16 @@ const Index = ({ loggedIn }) => {
           </div>
           
           {loggedIn ?
-            <CustomButton href="/signout">Sign Out</CustomButton>
+            <div style={{
+              display: "flex"
+            }}>
+              {isAdmin ?
+                <CustomButton href="/admin" style={{ marginRight: theme.spacing(2) }}>Admin Panel</CustomButton>
+                :
+                <CustomButton href="/bookings" style={{ marginRight: theme.spacing(2) }}>My Bookings</CustomButton>
+              } 
+              <CustomButton href="/signout">Sign Out</CustomButton>
+            </div>
             :
             <CustomButton href="/signin">Login</CustomButton>
           }
@@ -41,7 +51,8 @@ const Index = ({ loggedIn }) => {
 
 export async function getServerSideProps({ req }) {
   const loggedIn = req.session.userID ? true : false;
-  return { props: { loggedIn } }
+  const isAdmin = req.session.level > 0 ? true : false;
+  return { props: { loggedIn, isAdmin } }
 }
 
 export default Index;
