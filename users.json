@@ -11,6 +11,13 @@
         "breakfast": true,
         "totalPrice": 98,
         "id": "6a3d4e4484ee9dc6"
+      },
+      {
+        "startDate": "2020-05-01T08:41:22.000Z",
+        "endDate": "2020-05-04T08:41:22.000Z",
+        "breakfast": true,
+        "totalPrice": 196,
+        "id": "fc7db2a7735c4898"
       }
     ]
   },

@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -376,6 +376,68 @@ const CustomCheckbox = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["
 
 /***/ }),
 
+/***/ "./components/Navbar.js":
+/*!******************************!*\
+  !*** ./components/Navbar.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/styles */ "@material-ui/styles");
+/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_3__);
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  navbar: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginTop: "1rem",
+    alignItems: "center"
+  }
+}));
+
+const Navbar = ({
+  children
+}) => {
+  const classes = useStyles();
+  const theme = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["useTheme"])();
+  return __jsx("nav", {
+    className: classes.navbar
+  }, __jsx("div", {
+    style: {
+      display: "flex",
+      alignItems: "center"
+    }
+  }, __jsx("img", {
+    src: "https://pngimage.net/wp-content/uploads/2018/06/logo-placeholder-png-7.png",
+    width: "100"
+  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    variant: "h2",
+    style: {
+      marginLeft: "0.5rem"
+    }
+  }, "COMPANY")), __jsx("div", {
+    style: {
+      display: "flex"
+    }
+  }, children));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Navbar);
+
+/***/ }),
+
 /***/ "./pages/index.js":
 /*!************************!*\
   !*** ./pages/index.js ***!
@@ -392,10 +454,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Container */ "@material-ui/core/Container");
 /* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_CustomButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/CustomButton */ "./components/CustomButton.js");
-/* harmony import */ var _components_BookingForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/BookingForm */ "./components/BookingForm.js");
+/* harmony import */ var _components_CustomButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/CustomButton */ "./components/CustomButton.js");
+/* harmony import */ var _components_BookingForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/BookingForm */ "./components/BookingForm.js");
+/* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
 /* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
 /* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_6__);
 
@@ -406,58 +467,30 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
-  navbar: {
-    display: "flex",
-    justifyContent: "space-between",
-    marginTop: "1rem",
-    alignItems: "center"
-  }
-}));
 
 const Index = ({
   loggedIn,
   isAdmin,
   roomPrice
 }) => {
-  const classes = useStyles();
   const theme = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_1__["useTheme"])();
   return __jsx("div", null, __jsx(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2___default.a, {
     maxWidth: "md"
-  }, __jsx("nav", {
-    className: classes.navbar
-  }, __jsx("div", {
-    style: {
-      display: "flex",
-      alignItems: "center"
-    }
-  }, __jsx("img", {
-    src: "https://pngimage.net/wp-content/uploads/2018/06/logo-placeholder-png-7.png",
-    width: "100"
-  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    variant: "h2",
-    style: {
-      marginLeft: "0.5rem"
-    }
-  }, "COMPANY")), loggedIn ? __jsx("div", {
-    style: {
-      display: "flex"
-    }
-  }, isAdmin ? __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    href: "/admin",
-    style: {
-      marginRight: theme.spacing(2)
-    }
-  }, "Admin Panel") : __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_5__["default"], null, loggedIn ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, isAdmin ? __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
     href: "/bookings",
     style: {
       marginRight: theme.spacing(2)
     }
-  }, "My Bookings"), __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, "Admin Panel") : __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    href: "/bookings",
+    style: {
+      marginRight: theme.spacing(2)
+    }
+  }, "My Bookings"), __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
     href: "/signout"
-  }, "Sign Out")) : __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, "Sign Out")) : __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
     href: "/signin"
-  }, "Login")), __jsx("main", null, __jsx(_components_BookingForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, "Login")), __jsx("main", null, __jsx(_components_BookingForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
     roomPrice: roomPrice,
     loggedIn: loggedIn
   }))));
@@ -482,7 +515,7 @@ async function getServerSideProps({
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
