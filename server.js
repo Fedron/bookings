@@ -74,6 +74,23 @@ app.prepare().then(() => {
     res.redirect("/signin");
   });
 
+  server.get("/bookings", requireAuth, (req, res) => {
+    app.render(req, res, "/bookings")
+  });
+
+  server.post("/bookings/create", requireAuth, async (req, res) => {
+    const { startDate, endDate, breakfast, totalPrice } = req.body;
+
+    await usersDB.createBooking(req.session.userID, {
+      startDate,
+      endDate,
+      breakfast,
+      totalPrice
+    });
+
+    return res.send("");
+  });
+
   server.get("*", (req, res) => {
     return handle(req, res);
   });

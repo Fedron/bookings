@@ -104,16 +104,20 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-datepicker */ "react-datepicker");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/styles */ "@material-ui/styles");
-/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_styles__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
-/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _CustomButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./CustomButton */ "./components/CustomButton.js");
-/* harmony import */ var _CustomCheckbox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CustomCheckbox */ "./components/CustomCheckbox.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-datepicker */ "react-datepicker");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/styles */ "@material-ui/styles");
+/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_styles__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _CustomButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CustomButton */ "./components/CustomButton.js");
+/* harmony import */ var _CustomCheckbox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CustomCheckbox */ "./components/CustomCheckbox.js");
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_8__);
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -122,7 +126,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(theme => ({
+
+
+const useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(theme => ({
   root: {
     display: "flex",
     flexDirection: "column",
@@ -157,10 +163,11 @@ const useStyles = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_2__["makeS
 }));
 
 const BookingForm = ({
-  roomPrice
+  roomPrice,
+  loggedIn
 }) => {
   const classes = useStyles();
-  const theme = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_2__["useTheme"])();
+  const theme = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_3__["useTheme"])();
   const {
     0: startDate,
     1: setStartDate
@@ -187,7 +194,7 @@ const BookingForm = ({
   const totalPrice = roomPrice * stayDuration;
   return __jsx("div", {
     className: classes.root
-  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h3",
     style: {
       marginTop: theme.spacing(5)
@@ -195,22 +202,22 @@ const BookingForm = ({
     className: classes.title
   }, "Create new booking"), __jsx("div", {
     className: classes.dates
-  }, __jsx("div", null, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, __jsx("div", null, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h5"
-  }, "From date"), __jsx(react_datepicker__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, "From date"), __jsx(react_datepicker__WEBPACK_IMPORTED_MODULE_2___default.a, {
     selected: startDate,
     onChange: handleStartDateChange
-  })), __jsx("div", null, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  })), __jsx("div", null, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h5"
-  }, "To date"), __jsx(react_datepicker__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, "To date"), __jsx(react_datepicker__WEBPACK_IMPORTED_MODULE_2___default.a, {
     selected: endDate,
     onChange: handleEndDateChange
   }))), __jsx("div", {
     className: classes.breakfastForm
-  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h6"
-  }, "Would you like breakfast to be included?"), __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    control: __jsx(_CustomCheckbox__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, "Would you like breakfast to be included?"), __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    control: __jsx(_CustomCheckbox__WEBPACK_IMPORTED_MODULE_7__["default"], {
       name: "breakfast",
       checked: breakfast,
       onChange: () => {
@@ -218,7 +225,7 @@ const BookingForm = ({
       }
     }),
     label: "Breakfast"
-  })), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  })), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h3",
     style: {
       marginTop: theme.spacing(4)
@@ -228,28 +235,49 @@ const BookingForm = ({
       display: "flex",
       alignItems: "center"
     }
-  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h1",
     style: {
       marginRight: theme.spacing(2)
     },
     className: classes.bigText
-  }, stayDuration), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, stayDuration), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h3",
     className: classes.bigText
-  }, stayDuration === 1 ? "Day" : "Days")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, stayDuration === 1 ? "Day" : "Days")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h3"
-  }, "At a cost of"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, "At a cost of"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h1",
     className: classes.bigText
-  }, "\xA3", totalPrice), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, "\xA3", totalPrice), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     style: {
       marginTop: theme.spacing(4)
     }
-  }, "To purchase your booking, please press confirm below"), __jsx(_CustomButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, "To purchase your booking, please press confirm below"), __jsx(_CustomButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
     size: "large",
     style: {
       marginTop: theme.spacing(2)
+    },
+    onClick: async () => {
+      if (loggedIn) {
+        await fetch(`/bookings/create`, {
+          method: "post",
+          headers: {
+            "Accept": "application/json, text/plan, */*",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            startDate,
+            endDate,
+            breakfast,
+            totalPrice
+          })
+        }).then(res => {
+          if (res.status === 200) {
+            next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("/bookings/success?type=payment");
+          }
+        });
+      }
     }
   }, "Confirm"));
 };
@@ -273,13 +301,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_1__);
 
 
+
+const getGradientColors = props => {
+  if (props.color_ === "green") {
+    return ["rgba(98,242,95,1)", "rgba(43,238,32,1)"];
+  }
+
+  if (props.color_ === "red") {
+    return ["rgba(242,95,95,1)", "rgba(238,32,32,1)"];
+  }
+
+  return ["rgba(95,194,242,1)", "rgba(32,230,238,1)"];
+};
+
 const CustomButton = Object(_material_ui_styles__WEBPACK_IMPORTED_MODULE_0__["withStyles"])(theme => ({
   root: {
-    borderImage: "linear-gradient(132deg, rgba(95,194,242,1) 0%, rgba(32,230,238,1) 100%)",
-    borderImageSlice: "30%",
+    borderImage: props => `linear-gradient(132deg, ${getGradientColors(props)[0]} 0%, ${getGradientColors(props)[1]} 100%) 25;`,
     borderStyle: "solid",
     borderWidth: "5px",
-    color: "#40d4f0",
+    color: props => {
+      if (props.color_ === "green") {
+        return "rgba(98,242,95,1)";
+      }
+
+      if (props.color_ === "red") {
+        return "rgba(242,95,95,1)";
+      }
+
+      return "rgba(95,194,242,1)";
+    },
     padding: "0.5rem 1rem",
     fontWeight: "bold",
     fontSize: "120%",
@@ -408,7 +458,8 @@ const Index = ({
   }, "Sign Out")) : __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
     href: "/signin"
   }, "Login")), __jsx("main", null, __jsx(_components_BookingForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    roomPrice: roomPrice
+    roomPrice: roomPrice,
+    loggedIn: loggedIn
   }))));
 };
 
@@ -517,6 +568,17 @@ module.exports = require("@material-ui/styles");
 /***/ (function(module, exports) {
 
 module.exports = require("isomorphic-fetch");
+
+/***/ }),
+
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
 
 /***/ }),
 

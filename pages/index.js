@@ -43,7 +43,7 @@ const Index = ({ loggedIn, isAdmin, roomPrice }) => {
           }
         </nav>
         <main>
-          <BookingForm roomPrice={roomPrice} />
+          <BookingForm roomPrice={roomPrice} loggedIn={loggedIn} />
         </main>
       </Container>
     </div>

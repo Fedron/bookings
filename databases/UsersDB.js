@@ -25,6 +25,16 @@ class UsersDB extends Database {
     return record;
   }
 
+  async createBooking(userID, booking) {
+    const records = await this.getAll();
+    const record = records.find(r => r.id === userID);
+
+    booking.id = this.randomID();
+
+    record.bookings.push(booking);
+    await this.writeAll(records);
+  }
+
   async comparePasswords(saved, supplied) {
     // saved -> stored in db "hashed.salt"
     // supplied -> from a form in plain test

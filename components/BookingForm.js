@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import Router from 'next/router';
 import DatePicker from 'react-datepicker';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import CustomButton from './CustomButton';
 import CustomCheckbox from './CustomCheckbox';
+import 'isomorphic-fetch';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const BookingForm = ({ roomPrice }) => {
+const BookingForm = ({ roomPrice, loggedIn }) => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -120,6 +122,27 @@ const BookingForm = ({ roomPrice }) => {
       <CustomButton
         size="large"
         style={{ marginTop: theme.spacing(2) }}
+        onClick={async () => {
+          if (loggedIn) {
+            await fetch(`/bookings/create`, {
+              method: "post",
+              headers: {
+                "Accept": "application/json, text/plan, */*",
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                startDate,
+                endDate,
+                breakfast,
+                totalPrice
+              })
+            }).then((res) => {
+              if (res.status === 200) {
+                Router.push("/bookings/success?type=payment");
+              }
+            });
+          }
+        }}
       >Confirm</CustomButton>
     </div>
   );

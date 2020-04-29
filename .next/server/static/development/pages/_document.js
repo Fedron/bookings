@@ -919,6 +919,9 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
     return __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Html"], null, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], null, __jsx("meta", {
       name: "theme-color",
       content: _theme_js__WEBPACK_IMPORTED_MODULE_3__["default"].palette.primary.main
+    }), __jsx("link", {
+      href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css",
+      rel: "stylesheet"
     })), __jsx("body", {
       style: {
         margin: 0,
