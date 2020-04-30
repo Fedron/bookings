@@ -15,7 +15,7 @@ const Index = ({ loggedIn, isAdmin, roomPrice }) => {
           {loggedIn ?
             <>
               {isAdmin ?
-                <CustomButton href="/bookings" style={{ marginRight: theme.spacing(2) }}>Admin Panel</CustomButton>
+                <CustomButton href="/admin" style={{ marginRight: theme.spacing(2) }}>Admin Panel</CustomButton>
                 :
                 <CustomButton href="/bookings" style={{ marginRight: theme.spacing(2) }}>My Bookings</CustomButton>
               }

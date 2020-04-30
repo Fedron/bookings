@@ -32839,7 +32839,7 @@ var Index = function Index(_ref) {
   return __jsx("div", null, __jsx(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2__["default"], {
     maxWidth: "md"
   }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_5__["default"], null, loggedIn ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, isAdmin ? __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    href: "/bookings",
+    href: "/admin",
     style: {
       marginRight: theme.spacing(2)
     }
@@ -32863,7 +32863,7 @@ var __N_SSP = true;
 
 /***/ }),
 
-/***/ 1:
+/***/ 3:
 /*!************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=D%3A%5CGitHub%5Cbookings%5Cpages%5Cindex.js ***!
   \************************************************************************************************************/
@@ -32886,5 +32886,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

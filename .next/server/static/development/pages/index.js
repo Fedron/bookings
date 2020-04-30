@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -477,7 +477,7 @@ const Index = ({
   return __jsx("div", null, __jsx(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_2___default.a, {
     maxWidth: "md"
   }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_5__["default"], null, loggedIn ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, isAdmin ? __jsx(_components_CustomButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    href: "/bookings",
+    href: "/admin",
     style: {
       marginRight: theme.spacing(2)
     }
@@ -515,7 +515,7 @@ async function getServerSideProps({
 
 /***/ }),
 
-/***/ 3:
+/***/ 6:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

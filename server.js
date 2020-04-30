@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const cookieSession = require("cookie-session");
 
 const usersDB = require("./databases/UsersDB.js");
+const configDB = require("./databases/ConfigDB.js");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -12,6 +13,18 @@ const handle = app.getRequestHandler();
 const requireAuth = (req, res, next) => {
   if (!req.session.userID) {
     return res.redirect("/signin");
+  }
+  next();
+}
+
+const requireAdmin = async (req, res, next) => {
+  if (!req.session.userID) {
+    return res.redirect("/signin");
+  }
+
+  const user = await usersDB.get(req.session.userID);
+  if (user.level !== 2) {
+    return res.redirect("/");
   }
   next();
 }
@@ -88,6 +101,15 @@ app.prepare().then(() => {
       totalPrice
     });
 
+    return res.send("");
+  });
+
+  server.get("/admin", requireAdmin, (req, res) => {
+    app.render(req, res, "/admin")
+  });
+
+  server.post("/admin", requireAdmin, async (req, res) => {
+    await configDB.update("roomPrice", req.body.roomPrice);
     return res.send("");
   });
 
