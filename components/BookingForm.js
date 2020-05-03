@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import CustomButton from './CustomButton';
 import CustomCheckbox from './CustomCheckbox';
+import { getDatesBetween } from '../helpers.js';
 import 'isomorphic-fetch';
 
 const useStyles = makeStyles((theme) => ({
@@ -42,16 +43,16 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const BookingForm = ({ roomPrice, loggedIn }) => {
+const BookingForm = ({ roomPrice, loggedIn, bookedRooms }) => {
   const classes = useStyles();
   const theme = useTheme();
 
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date(Date.now()));
   const handleStartDateChange = (date) => {
     setStartDate(date);
   }
 
-  const [endDate, setEndDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date(Date.now()));
   const handleEndDateChange = (date) => {
     setEndDate(date);
   }
@@ -60,6 +61,17 @@ const BookingForm = ({ roomPrice, loggedIn }) => {
 
   const stayDuration = Math.round(((endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24)) + 1);
   const totalPrice = roomPrice * stayDuration;
+
+  let takenRooms = {};
+  const days = getDatesBetween(startDate, endDate);
+  days.forEach((date) => {
+     if (bookedRooms.hasOwnProperty(date.toDateString())) {
+        takenRooms.room1 = bookedRooms[date.toDateString()].room1;
+        takenRooms.room2 = bookedRooms[date.toDateString()].room2;
+        takenRooms.room3 = bookedRooms[date.toDateString()].room3;
+        takenRooms.room4 = bookedRooms[date.toDateString()].room4;
+     }
+  })
 
   return (
     <div className={classes.root}>
@@ -117,10 +129,15 @@ const BookingForm = ({ roomPrice, loggedIn }) => {
         className={classes.bigText}
       >£{totalPrice}</Typography>
 
-      <Typography style={{ marginTop: theme.spacing(4) }}>To purchase your booking, please press confirm below</Typography>
-
+      {!loggedIn ?
+        <Typography style={{ marginTop: theme.spacing(4) }}>Please login first</Typography>
+        :
+        <Typography style={{ marginTop: theme.spacing(4) }}>To purchase your booking, please press confirm below</Typography>
+      }
       <CustomButton
         size="large"
+        color_={!loggedIn ? "red" : ""}
+        disabled={!loggedIn ? true : false}
         style={{ marginTop: theme.spacing(2) }}
         onClick={async () => {
           if (loggedIn) {
@@ -134,7 +151,8 @@ const BookingForm = ({ roomPrice, loggedIn }) => {
                 startDate,
                 endDate,
                 breakfast,
-                totalPrice
+                totalPrice,
+                takenRooms
               })
             }).then((res) => {
               if (res.status === 200) {

@@ -5,7 +5,7 @@ import BookingForm from '../components/BookingForm';
 import Navbar from '../components/Navbar';
 import 'isomorphic-fetch';
 
-const Index = ({ loggedIn, isAdmin, roomPrice }) => {
+const Index = ({ loggedIn, isAdmin, roomPrice, bookedRooms }) => {
   const theme = useTheme();
 
   return (
@@ -26,7 +26,7 @@ const Index = ({ loggedIn, isAdmin, roomPrice }) => {
           }
         </Navbar>
         <main>
-          <BookingForm roomPrice={roomPrice} loggedIn={loggedIn} />
+          <BookingForm roomPrice={roomPrice} loggedIn={loggedIn} bookedRooms={bookedRooms} />
         </main>
       </Container>
     </div>
@@ -37,10 +37,13 @@ export async function getServerSideProps({ req }) {
   const loggedIn = req.session.userID ? true : false;
   const isAdmin = req.session.level > 0 ? true : false;
 
-  const res = await fetch(`${req.protocol}://${req.get("host")}/api/price`);
+  let res = await fetch(`${req.protocol}://${req.get("host")}/api/price`);
   const roomPrice = await res.json();
 
-  return { props: { loggedIn, isAdmin, roomPrice } }
+  res = await fetch(`${req.protocol}://${req.get("host")}/api/bookings?id=all`);
+  const bookedRooms = await res.json();
+
+  return { props: { loggedIn, isAdmin, roomPrice, bookedRooms } }
 }
 
 export default Index;

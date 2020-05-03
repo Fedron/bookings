@@ -6,18 +6,20 @@
     "level": 0,
     "bookings": [
       {
-        "startDate": "2020-04-29T07:37:36.249Z",
-        "endDate": "2020-04-30T07:37:36.000Z",
-        "breakfast": true,
-        "totalPrice": 98,
-        "id": "6a3d4e4484ee9dc6"
+        "startDate": "2020-05-03T10:49:54.974Z",
+        "endDate": "2020-05-05T10:49:54.000Z",
+        "breakfast": false,
+        "totalPrice": 147,
+        "room": 1,
+        "id": "748e80c789c0d4bd"
       },
       {
-        "startDate": "2020-05-01T08:41:22.000Z",
-        "endDate": "2020-05-04T08:41:22.000Z",
-        "breakfast": true,
-        "totalPrice": 196,
-        "id": "fc7db2a7735c4898"
+        "startDate": "2020-05-03T10:51:26.263Z",
+        "endDate": "2020-05-07T10:51:26.000Z",
+        "breakfast": false,
+        "totalPrice": 245,
+        "room": 2,
+        "id": "af4cdb6e421e1d88"
       }
     ]
   },

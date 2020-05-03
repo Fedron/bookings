@@ -1,0 +1,32 @@
+{
+  "Sun May 03 2020": {
+    "room1": true,
+    "room2": true,
+    "room3": false,
+    "room4": false
+  },
+  "Mon May 04 2020": {
+    "room1": true,
+    "room2": true,
+    "room3": false,
+    "room4": false
+  },
+  "Tue May 05 2020": {
+    "room1": true,
+    "room2": true,
+    "room3": false,
+    "room4": false
+  },
+  "Wed May 06 2020": {
+    "room1": false,
+    "room2": true,
+    "room3": false,
+    "room4": false
+  },
+  "Thu May 07 2020": {
+    "room1": false,
+    "room2": true,
+    "room3": false,
+    "room4": false
+  }
+}

@@ -5,6 +5,7 @@ const cookieSession = require("cookie-session");
 
 const usersDB = require("./databases/UsersDB.js");
 const configDB = require("./databases/ConfigDB.js");
+const roomDB = require("./databases/RoomsDB.js");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -28,6 +29,28 @@ const requireAdmin = async (req, res, next) => {
   }
   next();
 }
+
+const getDatesBetween = (startDate, endDate) => {
+  const dates = [];
+
+  let currentDate = new Date(
+    startDate.getFullYear(),
+    startDate.getMonth(),
+    startDate.getDate()
+  );
+
+  while (currentDate <= endDate) {
+    dates.push(currentDate);
+
+    currentDate = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      currentDate.getDate() + 1,
+    );
+  }
+
+  return dates;
+};
 
 app.prepare().then(() => {
   const server = express();
@@ -93,13 +116,34 @@ app.prepare().then(() => {
 
   server.post("/bookings/create", requireAuth, async (req, res) => {
     const { startDate, endDate, breakfast, totalPrice } = req.body;
+    const takenRooms = Object.values(req.body.takenRooms);
+
+    let room = 1;
+    for (let index in takenRooms) {
+      if (!takenRooms[index]) {
+        room = parseInt(index) + 1;
+        break;
+      }
+    }
+    room = parseInt(room);
 
     await usersDB.createBooking(req.session.userID, {
       startDate,
       endDate,
       breakfast,
-      totalPrice
+      totalPrice,
+      room
     });
+
+    const roomString = `room${room}`;
+    const days = getDatesBetween(new Date(startDate), new Date(endDate));
+
+    for (let date of days) {
+      await roomDB.create(date);
+      await roomDB.update(date, {
+        [roomString]: true
+      })
+    }
 
     return res.send("");
   });
