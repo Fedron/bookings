@@ -40,6 +40,12 @@ const useStyles = makeStyles((theme) => ({
     background: "linear-gradient(132deg, rgba(95,194,242,1) 0%, rgba(32,230,238,1) 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent"
+  },
+  rooms: {
+    display: "flex",
+    flexDirection: "column",
+    marginTop: theme.spacing(4),
+    color: "#f25f5f"
   }
 }));
 
@@ -107,6 +113,13 @@ const BookingForm = ({ roomPrice, loggedIn, bookedRooms }) => {
           label="Breakfast"
         />
       </div>
+
+      <div className={classes.rooms}>
+        {takenRooms.room1 && <Typography variant="h6">Room 1 will be unavailable</Typography>}
+        {takenRooms.room2 && <Typography variant="h6">Room 2 will be unavailable</Typography>}
+        {takenRooms.room3 && <Typography>Room 3 will be unavailable</Typography>}
+        {takenRooms.room4 && <Typography>Room 4 will be unavailable</Typography>}
+      </div> 
 
       <Typography
         variant="h3"
