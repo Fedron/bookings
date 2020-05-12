@@ -46,6 +46,12 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     marginTop: theme.spacing(4),
     color: "#f25f5f"
+  },
+  errorText: {
+    color: "rgba(242,95,95,1)",
+    fontSize: "2rem",
+    fontWeight: "bold",
+    textAlign: "center"
   }
 }));
 
@@ -121,6 +127,10 @@ const BookingForm = ({ roomPrice, loggedIn, bookedRooms }) => {
         {takenRooms.room4 && <Typography>Room 4 will be unavailable</Typography>}
       </div> 
 
+      {stayDuration <= 0 &&
+        <Typography className={classes.errorText}>You have selected a range of dates that isn't positive</Typography>
+      }
+      
       <Typography
         variant="h3"
         style={{ marginTop: theme.spacing(4) }}
@@ -149,8 +159,8 @@ const BookingForm = ({ roomPrice, loggedIn, bookedRooms }) => {
       }
       <CustomButton
         size="large"
-        color_={!loggedIn ? "red" : ""}
-        disabled={!loggedIn ? true : false}
+        color_={(!loggedIn || stayDuration <= 0) ? "red" : ""}
+        disabled={(!loggedIn || stayDuration <= 0) ? true : false}
         style={{ marginTop: theme.spacing(2) }}
         onClick={async () => {
           if (loggedIn) {
