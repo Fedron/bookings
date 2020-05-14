@@ -123,8 +123,8 @@ const BookingForm = ({ roomPrice, loggedIn, bookedRooms }) => {
       <div className={classes.rooms}>
         {takenRooms.room1 && <Typography variant="h6">Room 1 will be unavailable</Typography>}
         {takenRooms.room2 && <Typography variant="h6">Room 2 will be unavailable</Typography>}
-        {takenRooms.room3 && <Typography>Room 3 will be unavailable</Typography>}
-        {takenRooms.room4 && <Typography>Room 4 will be unavailable</Typography>}
+        {takenRooms.room3 && <Typography variant="h6">Room 3 will be unavailable</Typography>}
+        {takenRooms.room4 && <Typography variant="h6">Room 4 will be unavailable</Typography>}
       </div> 
 
       {stayDuration <= 0 &&
@@ -157,6 +157,7 @@ const BookingForm = ({ roomPrice, loggedIn, bookedRooms }) => {
         :
         <Typography style={{ marginTop: theme.spacing(4) }}>To purchase your booking, please press confirm below</Typography>
       }
+
       <CustomButton
         size="large"
         color_={(!loggedIn || stayDuration <= 0) ? "red" : ""}

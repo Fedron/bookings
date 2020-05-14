@@ -39,7 +39,8 @@ const useStyles = makeStyles((theme) => ({
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     fontSize: "12rem",
-    marginRight: theme.spacing(4)
+    marginRight: theme.spacing(4),
+    userSelect: "none"
   },
   priceContainer: {
     display: "flex",
