@@ -8,7 +8,7 @@
       {
         "startDate": "2020-05-03T10:49:54.974Z",
         "endDate": "2020-05-05T10:49:54.000Z",
-        "breakfast": false,
+        "breakfast": true,
         "totalPrice": 147,
         "room": 1,
         "id": "748e80c789c0d4bd"

@@ -13,6 +13,13 @@ const useStyles = makeStyles((theme) => ({
   bookingMainInfo: {
     display: "flex",
     flexDirection: "column"
+  },
+  bookingSecInfo: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center"
   }
 }));
 
@@ -41,9 +48,12 @@ const UserBookings = ({ bookings }) => {
               <Typography variant="caption" color="textSecondary">{booking.id}</Typography>
             </div>
 
-            {booking.breakfast &&
-              <Typography>With breakfast</Typography>
-            }
+            <div className={classes.bookingSecInfo}>
+              <Typography variant="h5">Room {booking.room}</Typography>
+              {booking.breakfast &&
+                <Typography color="textSecondary">With breakfast</Typography>
+              }
+            </div>
 
             <Typography variant="h4">£{booking.totalPrice}</Typography>
           </Paper>
