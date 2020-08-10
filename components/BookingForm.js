@@ -6,6 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import CustomButton from './CustomButton';
 import CustomCheckbox from './CustomCheckbox';
+import Alert from '@material-ui/lab/Alert';
+import IconButton from '@material-ui/core/IconButton';
+import Collapse from '@material-ui/core/Collapse';
+import CloseIcon from '@material-ui/icons/Close';
 import { getDatesBetween } from '../helpers.js';
 import 'isomorphic-fetch';
 
@@ -70,6 +74,7 @@ const BookingForm = ({ roomPrice, loggedIn, bookedRooms }) => {
   }
 
   const [breakfast, setBreakfast] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const stayDuration = Math.round(((endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24)) + 1);
   const totalPrice = roomPrice * stayDuration;
@@ -85,8 +90,26 @@ const BookingForm = ({ roomPrice, loggedIn, bookedRooms }) => {
      }
   })
 
+  if (!loggedIn && !open) { setOpen(true); }
+
   return (
     <div className={classes.root}>
+      <Collapse style={{ width: "100%", marginTop: theme.spacing(4) }} in={open}>
+        <Alert variant="filled" severity="error" action={
+          <IconButton
+            color="inherit"
+            size="small"
+            onClick={() => {
+              setOpen(false);
+              }}
+          >
+            <CloseIcon fontSize="inherit" />
+          </IconButton>
+        }>
+          Please login before continuing with your booking
+        </Alert>
+      </Collapse>
+
       <Typography
         variant="h3"
         style={{ marginTop: theme.spacing(5) }}
@@ -152,9 +175,7 @@ const BookingForm = ({ roomPrice, loggedIn, bookedRooms }) => {
         className={classes.bigText}
       >£{totalPrice}</Typography>
 
-      {!loggedIn ?
-        <Typography style={{ marginTop: theme.spacing(4) }}>Please login first</Typography>
-        :
+      {!loggedIn &&
         <Typography style={{ marginTop: theme.spacing(4) }}>To purchase your booking, please press confirm below</Typography>
       }
 

@@ -20,6 +20,14 @@
         "totalPrice": 245,
         "room": 2,
         "id": "af4cdb6e421e1d88"
+      },
+      {
+        "startDate": "2020-05-17T09:23:07.000Z",
+        "endDate": "2020-05-20T09:23:07.000Z",
+        "breakfast": true,
+        "totalPrice": 204,
+        "room": 1,
+        "id": "4185b6ba26692017"
       }
     ]
   },
